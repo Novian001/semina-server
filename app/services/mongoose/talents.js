@@ -70,16 +70,13 @@ const updateTalents = async (req) => {
 const deleteTalents = async (req) => {
   const { id } = req.params;
 
-  const result = Talents.findOne({
-    _id: id,
-  });
+  const result = await Talents.findByIdAndDelete(id);
 
-  if (!result) throw new NotFoundError(`Tidak ada kategori dengan id : ${id}`);
-
-  await result.remove();
+  if (!result) throw new NotFoundError(`Tidak ada pembicara dengan id : ${id}`);
 
   return result;
 };
+
 const checkingTalents = async (id) => {
   const result = await Talents.findOne({ _id: id });
 

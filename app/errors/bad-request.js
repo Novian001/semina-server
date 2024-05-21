@@ -8,3 +8,5 @@ class BadRequest extends CustomAPIError {
     this.StatusCode = StatusCodes.BAD_REQUEST;
   }
 }
+
+module.exports = BadRequest;
